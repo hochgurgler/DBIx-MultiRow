@@ -337,8 +337,21 @@ sub _forward_to_engine {
     my $dbh = shift;
     my $calling_function_name = (caller 1)[3] =~ s{^.*::}{}sr;
 
-    # FIXME this is inaccurate. See DateTime::Format::DBI
-    # for a more correct solution
+    # At this point we want to detect the type of the connected database so
+    # that we can try to instantiate an object of a database-specific
+    # engine subclass.  However, there doesn't appear to be an easy way to do
+    # this detection.  We can have a look at $dbh->{Driver}->{Name}, and this
+    # should give us an idea of the DBD:: driver in use, though that doesn't
+    # necessarily tell us what the type of the connected database is.
+    # However, at the time of writing, our only database-specific engine
+    # subclass is for PostgreSQL (DBIx::MultiRow::Engine::DB::Pg), which can
+    # be detected by this means.
+    # If it is desired to write a database-specific engine subclass which
+    # can't be detected by this means, then this detection will need to be
+    # refined.
+    # (At the time of writing, there is some code in DateTime::Format::DBI
+    # which appears to do something a bit cleverer, so we may want to see if
+    # we can do something with that.)
     my $db_driver_name = $dbh->{Driver}->{Name};
 
     my $base_engine_class = __PACKAGE__ . '::Engine';
