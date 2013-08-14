@@ -3,14 +3,15 @@ package DBIx::MultiRow::Engine::DB::Pg;
 # "use Moose;" does "use strict;" and "use warnings;" for us
 
 use Moose;
+
+extends 'DBIx::MultiRow::Engine';
+
 use MooseX::Params::Validate;
 use MooseX::Types::Moose qw{ ArrayRef HashRef Str};
 use Const::Fast;
 use Data::Alias;
 
 use DBIx::MultiRow 'DBIxMultiRowTable';
-
-extends 'DBIx::MultiRow::Engine';
 
 # We might think that we could optimise
 # _multi_update_for_1_key_col_set_1_val_col_set for PostgreSQL by making it
