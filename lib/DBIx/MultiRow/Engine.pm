@@ -1,7 +1,6 @@
 package DBIx::MultiRow::Engine;
 
-use strict;
-use warnings;
+# "use Moose;" does "use strict;" and "use warnings;" for us
 
 =head1 NOTE
 
@@ -11,9 +10,10 @@ Only go in here if you are working on it or an extension or something like that.
 
 =cut
 
+use Moose;
+
 use Carp;
 use Data::Alias;
-use Moose;
 use Moose::Util::TypeConstraints;
 use MooseX::Params::Validate;
 use MooseX::Types::Moose qw{ ArrayRef HashRef Str Defined Item CodeRef ScalarRef Undef Any };

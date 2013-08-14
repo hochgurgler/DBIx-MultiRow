@@ -1,7 +1,6 @@
 package DBIx::MultiRow::Engine::DB::Pg;
 
-use strict;
-use warnings;
+# "use Moose;" does "use strict;" and "use warnings;" for us
 
 use Moose;
 use MooseX::Params::Validate;
