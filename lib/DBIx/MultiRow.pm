@@ -148,7 +148,7 @@ Traditionally, multi-row updates in DBI would take the approach of
     ...
 
 But this can result in a large number of update queries being the dominant
-factor in exectution time.  Reducing the number of queries may lead to
+factor in execution time.  Reducing the number of queries may lead to
 considerable improvements in performance.
 
 =head2 Examples
