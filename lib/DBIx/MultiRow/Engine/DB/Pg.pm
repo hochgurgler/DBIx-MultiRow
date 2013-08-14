@@ -4,7 +4,7 @@ use strict;
 use warnings;
 
 use Moose;
-use MooseX::Params::Validate::PurePerl;
+use MooseX::Params::Validate;
 use MooseX::Types::Moose qw{ ArrayRef HashRef Str};
 use Const::Fast;
 use Data::Alias;
